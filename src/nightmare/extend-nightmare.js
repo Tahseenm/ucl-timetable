@@ -19,7 +19,7 @@ const selectDegree = degreeInfo => browser =>
     .type('#courseName', degreeInfo.degree)
     .type('#courseYear', '')
     .type('#courseYear', degreeInfo.year)
-    .evaluate(() => window._NM.hasTimetable());
+    .evaluate(() => window.$SCRAPER.hasTimetable());
 
 
 
@@ -50,9 +50,9 @@ const extractTermInfo = () => browser =>
   browser
     .inject('js', 'src/browser-scripts/vendor/jquery.js')
     .inject('js', 'src/browser-scripts/ucl-timetable.js')
-    .evaluate(() => window._NM.toggleChangeDisplayTab())
+    .evaluate(() => window.$SCRAPER.toggleChangeDisplayTab())
     .wait('#yearCalendarWeekContainer .weekTermThree span')
-    .evaluate(() => window._NM.getTermInfo());
+    .evaluate(() => window.$SCRAPER.getTermInfo());
 
 
 
@@ -70,8 +70,8 @@ const selectWeek = week => browser =>
     .inject('js', 'src/browser-scripts/vendor/jquery.js')
     .inject('js', 'src/browser-scripts/ucl-timetable.js')
     .evaluate(() => {
-      window._NM.removeTimetableCont();
-      window._NM.toggleChangeDisplayTab();
+      window.$SCRAPER.removeTimetableCont();
+      window.$SCRAPER.toggleChangeDisplayTab();
     })
     .type('#weekRange', '')
     .type('#weekRange', week)
@@ -92,7 +92,7 @@ const parseTimetable = () => browser =>
   browser
     .inject('js', 'src/browser-scripts/vendor/jquery.js')
     .inject('js', 'src/browser-scripts/ucl-timetable.js')
-    .evaluate(() => window._NM.parseCurrentWeeksTimetable());
+    .evaluate(() => window.$SCRAPER.parseCurrentWeeksTimetable());
 
 
 

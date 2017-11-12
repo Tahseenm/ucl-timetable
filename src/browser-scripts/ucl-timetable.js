@@ -46,7 +46,7 @@
     $ = global.jQuery;
 
     /** Attach UCL functions to a namespace */
-    global._NM = {
+    global.$SCRAPER = {
       toggleChangeDisplayTab,
       getTermInfo,
       removeTimetableCont,
